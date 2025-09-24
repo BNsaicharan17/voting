@@ -23,7 +23,11 @@ import {
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const ADMIN_EMAIL = "saicharan172005@gmail.com";
+// ✅ Allow multiple admins here
+const ADMIN_EMAILS = [
+  "saicharan172005@gmail.com",
+  "secondadmin@example.com", // change this to your 2nd admin email
+];
 
 const categories = [
   {
@@ -55,7 +59,7 @@ const Vote = () => {
       setUser(currentUser);
       if (currentUser) {
         fetchUserVotes(currentUser.uid);
-        if (currentUser.email === ADMIN_EMAIL) {
+        if (ADMIN_EMAILS.includes(currentUser.email)) {
           listenToVotes();
         }
       }
@@ -114,7 +118,7 @@ const Vote = () => {
   };
 
   // ===== ADMIN DASHBOARD =====
-  if (user && user.email === ADMIN_EMAIL) {
+  if (user && ADMIN_EMAILS.includes(user.email)) {
     const voteCounts = {};
     votes.forEach((v) => {
       const key = `${v.category} - ${v.vote}`;
