@@ -26,7 +26,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 // ✅ Allow multiple admins here
 const ADMIN_EMAILS = [
   "saicharan172005@gmail.com",
-  "secondadmin@example.com", // change this to your 2nd admin email
+  "sabiyaalamuru@gmail.com", // change this to your 2nd admin email
 ];
 
 const categories = [
